@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>80YOU AI Companion - Payment</title>
+  <style>
+    :root {
+      --primary: #4F6D7A;
+      --secondary: #DD6E42;
+      --light: #E8DAB2;
+      --dark: #292F36;
+      --white: #F4F4F9;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--white);
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    header h1 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    
+    .pricing {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .price-tag {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin: 15px 0;
+    }
+    
+    .price-period {
+      font-size: 1.2rem;
+      color: var(--dark);
+      opacity: 0.7;
+    }
+    
+    .features {
+      margin-bottom: 30px;
+    }
+    
+    .features ul {
+      list-style-type: none;
+    }
+    
+    .features li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .features li:before {
+      content: "✓";
+      color: var(--secondary);
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    
+    .btn {
+      display: block;
+      width: 100%;
+      background-color: var(--secondary);
+      color: var(--white);
+      padding: 12px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      font-size: 16px;
+    }
+    
+    .btn:hover {
+      background-color: #c55b33;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(221, 110, 66, 0.3);
+    }
+    
+    .return-instructions {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #f8f8f8;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>80YOU AI Companion</h1>
+      <p>Complete your payment to unlock your future self</p>
+    </header>
+    
+    <div class="pricing">
+      <h2>Subscription Details</h2>
+      <div class="price-tag">£1 <span class="price-period">per week</span></div>
+      <p>Billed weekly, cancel anytime</p>
+    </div>
+    
+    <div class="features">
+      <h3>What You'll Get</h3>
+      <ul>
+        <li>Unlimited conversations with your 80-year-old self</li>
+        <li>Personalized wisdom and guidance</li>
+        <li>Daily inspiration based on your interests</li>
+        <li>Life advice on health, finance, and career</li>
+      </ul>
+    </div>
+    
+    <button id="checkout-button" class="btn">Subscribe Now</button>
+    
+    <div class="return-instructions">
+      <p><strong>Important:</strong> After completing your payment, please return to WhatsApp and type "payment complete" to continue your conversation with your future self.</p>
+    </div>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 80YOU AI Companion is a brand of Owango Renaissance Ltd. All rights reserved.</p>
+  </footer>
+
+  <!-- Stripe JavaScript SDK -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    // Replace with your publishable API key
+    const stripe = Stripe('pk_test_51R287HLvTptAHjA7mwzyUgn6bmPvOCzKDsTNzcI4aB4ah1aWlEzf0gSM4JjZoBbQ7pJ5xEVGlznmL2BcnXFxUshr00TehmLt8G');
+    
+    const checkoutButton = document.getElementById('checkout-button');
+    checkoutButton.addEventListener('click', function() {
+      // Create checkout session on the server
+      fetch('/create-checkout-session.php', {
+        method: 'POST',
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(session) {
+        return stripe.redirectToCheckout({ sessionId: session.id });
+      })
+      .then(function(result) {
+        // If redirectToCheckout fails due to a browser or network
+        // error, display the localized error message
+        if (result.error) {
+          alert(result.error.message);
+        }
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+      });
+    });
+  </script>
+</body>
+</html>
