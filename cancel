@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Cancelled - 80YOU AI Companion</title>
+  <style>
+    :root {
+      --primary: #4F6D7A;
+      --secondary: #DD6E42;
+      --light: #E8DAB2;
+      --dark: #292F36;
+      --white: #F4F4F9;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--white);
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+      text-align: center;
+    }
+    
+    .cancel-icon {
+      font-size: 72px;
+      color: #F44336;
+      margin-bottom: 20px;
+    }
+    
+    h1 {
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--secondary);
+      color: var(--white);
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background-color: #c55b33;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(221, 110, 66, 0.3);
+    }
+    
+    .return-link {
+      margin-top: 30px;
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="cancel-icon">×</div>
+    <h1>Payment Cancelled</h1>
+    <p>Your subscription to 80YOU AI Companion was not completed.</p>
+    
+    <p>You can try again whenever you're ready.</p>
+    
+    <a href="payment.html" class="btn">Try Again</a>
+    
+    <div class="return-link">
+      <p>Or <a href="https://wa.me/?text=Let%20me%20try%20again">return to your conversation</a> with 80YOU</p>
+    </div>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 80YOU AI Companion is a brand of Owango Renaissance Ltd. All rights reserved.</p>
+  </footer>
+</body>
+</html>
