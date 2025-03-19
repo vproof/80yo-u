@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Successful - 80YOU AI Companion</title>
+  <style>
+    :root {
+      --primary: #4F6D7A;
+      --secondary: #DD6E42;
+      --light: #E8DAB2;
+      --dark: #292F36;
+      --white: #F4F4F9;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--white);
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+      text-align: center;
+    }
+    
+    .success-icon {
+      font-size: 72px;
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+    
+    h1 {
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .code-container {
+      margin: 30px 0;
+      padding: 15px;
+      background-color: #f8f8f8;
+      border-radius: 5px;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    
+    .instructions {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+    }
+    
+    .instructions ol {
+      text-align: left;
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+    
+    .instructions li {
+      margin-bottom: 10px;
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="success-icon">✓</div>
+    <h1>Payment Successful!</h1>
+    <p>Thank you for subscribing to 80YOU AI Companion.</p>
+    
+    <div class="code-container">
+      <span id="verification-code">SUCCESS80</span>
+    </div>
+    
+    <div class="instructions">
+      <h3>Next Steps:</h3>
+      <ol>
+        <li>Return to your WhatsApp conversation with 80YOU</li>
+        <li>Type the verification code shown above</li>
+        <li>Continue your conversation with your future self</li>
+      </ol>
+    </div>
+    
+    <p>We're excited to help you gain wisdom from your future self!</p>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 80YOU AI Companion is a brand of Owango Renaissance Ltd. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Generate a unique verification code based on session ID
+    document.addEventListener('DOMContentLoaded', function() {
+      const params = new URLSearchParams(window.location.search);
+      const sessionId = params.get('session_id');
+      
+      if (sessionId) {
+        // Take the last 6 characters of the session ID and make an alphanumeric code
+        const code = 'SUCCESS' + sessionId.substr(-4).toUpperCase();
+        document.getElementById('verification-code').textContent = code;
+      }
+    });
+  </script>
+</body>
+</html>
