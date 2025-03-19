@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future Self - Your 80-Year-Old AI Companion</title>
+  <style>
+    :root {
+      --primary: #4F6D7A;
+      --secondary: #DD6E42;
+      --light: #E8DAB2;
+      --dark: #292F36;
+      --white: #F4F4F9;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--white);
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    header {
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    
+    .hero {
+      background: linear-gradient(rgba(79, 109, 122, 0.8), rgba(79, 109, 122, 0.8)), url('/api/placeholder/1200/600') center/cover;
+      padding: 4rem 0;
+      text-align: center;
+      color: var(--white);
+    }
+    
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--secondary);
+      color: var(--white);
+      padding: 0.8rem 2rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(221, 110, 66, 0.3);
+    }
+    
+    .features {
+      padding: 4rem 0;
+      background-color: var(--white);
+    }
+    
+    .features h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--primary);
+    }
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .feature-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .feature-card h3 {
+      color: var(--primary);
+      margin: 1rem 0;
+    }
+    
+    .how-it-works {
+      padding: 4rem 0;
+      background-color: var(--light);
+    }
+    
+    .how-it-works h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--primary);
+    }
+    
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      counter-reset: step-counter;
+    }
+    
+    .step {
+      position: relative;
+      padding: 1.5rem;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .step::before {
+      counter-increment: step-counter;
+      content: counter(step-counter);
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--secondary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
+    
+    .pricing {
+      padding: 4rem 0;
+      text-align: center;
+    }
+    
+    .pricing h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .price-tag {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin: 1rem 0;
+    }
+    
+    .price-period {
+      font-size: 1.2rem;
+      color: var(--dark);
+      opacity: 0.7;
+    }
+    
+    .cta {
+      padding: 4rem 0;
+      background-color: var(--primary);
+      color: var(--white);
+      text-align: center;
+    }
+    
+    .cta h2 {
+      margin-bottom: 2rem;
+    }
+    
+    footer {
+      background-color: var(--dark);
+      color: var(--white);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    
+    .whatsapp-button {
+      background-color: #25D366;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      margin-top: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-button:hover {
+      background-color: #128C7E;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .feature-grid, .steps {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Future Self</h1>
+    </div>
+  </header>
+  
+  <section class="hero">
+    <div class="container">
+      <h1>Meet Your 80-Year-Old Self</h1>
+      <p>Gain wisdom and perspective from your future self. Our AI companion offers insights from a lifetime of experience to help you make better decisions today.</p>
+      <a href="#get-started" class="btn">Get Started</a>
+    </div>
+  </section>
+  
+  <section class="features">
+    <div class="container">
+      <h2>Why Connect With Your Future Self?</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Life Wisdom</h3>
+          <p>Receive guidance based on a lifetime of experience to help you avoid common regrets and make wiser choices.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Health & Wellbeing</h3>
+          <p>Get perspective on what truly matters for long-term health and happiness from someone who's lived it.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Career & Finance</h3>
+          <p>Understand the long-term impact of today's financial and career decisions with insights from your future.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="how-it-works">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <h3>Connect</h3>
+          <p>Subscribe and connect with your AI companion through WhatsApp for easy, convenient conversations.</p>
+        </div>
+        <div class="step">
+          <h3>Share</h3>
+          <p>Answer a few simple questions to help your future self understand your current situation and challenges.</p>
+        </div>
+        <div class="step">
+          <h3>Receive Guidance</h3>
+          <p>Get personalized wisdom and perspective based on your specific circumstances and goals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="pricing">
+    <div class="container">
+      <h2>Simple, Affordable Pricing</h2>
+      <div class="price-tag">£1 <span class="price-period">per week</span></div>
+      <p>Unlimited conversations with your 80-year-old self</p>
+      <p>Daily inspiration based on your favorite books and movies</p>
+      <p>Personalized guidance for health, finance, and career</p>
+    </div>
+  </section>
+  
+  <section class="cta" id="get-started">
+    <div class="container">
+      <h2>Ready to Meet Your Future Self?</h2>
+      <p>Start a conversation with your 80-year-old self today and gain the perspective that only comes with time.</p>
+      <!-- WhatsApp button - link will be added later -->
+      <a href="#" class="whatsapp-button">
+        Chat on WhatsApp
+        <!-- WhatsApp icon would go here -->
+      </a>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 80YOU AI Companion is a brand of Owango Renaissance Ltd. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
