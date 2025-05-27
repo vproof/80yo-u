@@ -40,6 +40,54 @@
       text-align: center;
     }
     
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .header-content h1 {
+      margin: 0;
+      flex: 1;
+    }
+    
+    .language-selector {
+      position: relative;
+    }
+    
+    .language-selector select {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 25px;
+      padding: 8px 15px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 140px;
+    }
+    
+    .language-selector select:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .language-selector select:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: var(--light);
+      box-shadow: 0 0 0 3px rgba(232, 218, 178, 0.3);
+    }
+    
+    .language-selector option {
+      background-color: var(--white);
+      color: var(--dark);
+      padding: 8px 12px;
+    }
+    
     .hero {
       background: linear-gradient(rgba(79, 109, 122, 0.8), rgba(79, 109, 122, 0.8)), url('/api/placeholder/1200/600') center/cover;
       padding: 4rem 0;
@@ -188,6 +236,23 @@
       text-align: center;
     }
     
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+    
+    .footer-links a {
+      color: var(--light);
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--white);
+      text-decoration: underline;
+    }
+    
     .whatsapp-button {
       background-color: #25D366;
       color: white;
@@ -220,13 +285,50 @@
       .feature-grid, .steps {
         grid-template-columns: 1fr;
       }
+      
+      .footer-links a {
+        display: block;
+        margin: 5px 0;
+      }
+      
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .header-content h1 {
+        order: 2;
+      }
+      
+      .language-selector {
+        order: 1;
+        align-self: flex-end;
+      }
+      
+      .language-selector select {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        min-width: 120px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <h1>Future Self</h1>
+      <div class="header-content">
+        <h1>Future Self</h1>
+        <div class="language-selector">
+          <select id="language-dropdown" onchange="changeLanguage()">
+            <option value="en" selected>🇬🇧 English</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="it">🇮🇹 Italiano</option>
+            <option value="nl">🇳🇱 Nederlands</option>
+          </select>
+        </div>
+      </div>
     </div>
   </header>
   
@@ -234,8 +336,7 @@
     <div class="container">
       <h1>Meet Your 80-Year-Old Self</h1>
       <p>Gain wisdom and perspective from your future self. Our AI companion offers insights from a lifetime of experience to help you make better decisions today.</p>
-      <a href="https://buy.stripe.com/eVq8wQdoG65CdgqdGo1gs00
-                              " class="btn">Get Started for £0.99/week</a>
+      <a href="#get-started" class="btn">Get Started</a>
     </div>
   </section>
   
@@ -293,25 +394,268 @@
     <div class="container">
       <h2>Ready to Meet Your Future Self?</h2>
       <p>Start a conversation with your 80-year-old self today and gain the perspective that only comes with time.</p>
-      <!-- WhatsApp button - link will be added later -->
-      <a href="https://buy.stripe.com/eVq8wQdoG65CdgqdGo1gs00
-            " class="whatsapp-button">
-        BUY NOW
-        <!-- WhatsApp icon would go here -->
+      <!-- Payment button linking to Stripe -->
+      <a href="https://buy.stripe.com/YOUR_STRIPE_PAYMENT_LINK" class="whatsapp-button">
+        Subscribe Now - £51.48/year
       </a>
+      <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">
+        By subscribing, you agree to our <a href="legal.html" style="color: var(--light); text-decoration: underline;">Terms & Conditions</a>
+      </p>
     </div>
   </section>
   
   <footer>
     <div class="container">
-      <div class="container">
       <div class="footer-links">
         <a href="legal.html">Privacy Policy</a>
         <a href="legal.html#terms-conditions">Terms & Conditions</a>
-        <a href="mailto:8you-aicompanion@gmail.com">Contact Us</a>
+        <a href="mailto:support@yourcompany.com">Contact Us</a>
       </div>
       <p>&copy; 2025 80YOU AI Companion is a brand of Owango Renaissance Ltd. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    // Language translations object
+    const translations = {
+      en: {
+        title: "Meet Your 80-Year-Old Self",
+        subtitle: "Gain wisdom and perspective from your future self. Our AI companion offers insights from a lifetime of experience to help you make better decisions today.",
+        getStarted: "Get Started",
+        whyConnect: "Why Connect With Your Future Self?",
+        lifeWisdom: "Life Wisdom",
+        lifeWisdomDesc: "Receive guidance based on a lifetime of experience to help you avoid common regrets and make wiser choices.",
+        healthWellbeing: "Health & Wellbeing",
+        healthWellbeingDesc: "Get perspective on what truly matters for long-term health and happiness from someone who's lived it.",
+        careerFinance: "Career & Finance",
+        careerFinanceDesc: "Understand the long-term impact of today's financial and career decisions with insights from your future.",
+        howItWorks: "How It Works",
+        connect: "Connect",
+        connectDesc: "Subscribe and connect with your AI companion through WhatsApp for easy, convenient conversations.",
+        share: "Share",
+        shareDesc: "Answer a few simple questions to help your future self understand your current situation and challenges.",
+        receiveGuidance: "Receive Guidance",
+        receiveGuidanceDesc: "Get personalized wisdom and perspective based on your specific circumstances and goals.",
+        pricing: "Simple, Affordable Pricing",
+        perWeek: "per week",
+        unlimitedConv: "Unlimited conversations with your 80-year-old self",
+        dailyInspiration: "Daily inspiration based on your favorite books and movies",
+        personalizedGuidance: "Personalized guidance for health, finance, and career",
+        readyToMeet: "Ready to Meet Your Future Self?",
+        startConversation: "Start a conversation with your 80-year-old self today and gain the perspective that only comes with time.",
+        subscribeNow: "Subscribe Now - £51.48/year",
+        bySubscribing: "By subscribing, you agree to our",
+        termsConditions: "Terms & Conditions"
+      },
+      fr: {
+        title: "Rencontrez Votre Moi de 80 Ans",
+        subtitle: "Gagnez en sagesse et en perspective grâce à votre futur moi. Notre compagnon IA offre des insights d'une vie d'expérience pour vous aider à prendre de meilleures décisions aujourd'hui.",
+        getStarted: "Commencer",
+        whyConnect: "Pourquoi Se Connecter Avec Votre Futur Moi?",
+        lifeWisdom: "Sagesse de Vie",
+        lifeWisdomDesc: "Recevez des conseils basés sur une vie d'expérience pour vous aider à éviter les regrets communs et faire des choix plus sages.",
+        healthWellbeing: "Santé et Bien-être",
+        healthWellbeingDesc: "Obtenez une perspective sur ce qui compte vraiment pour la santé et le bonheur à long terme de quelqu'un qui l'a vécu.",
+        careerFinance: "Carrière et Finance",
+        careerFinanceDesc: "Comprenez l'impact à long terme des décisions financières et de carrière d'aujourd'hui avec des insights de votre futur.",
+        howItWorks: "Comment Ça Marche",
+        connect: "Se Connecter",
+        connectDesc: "Abonnez-vous et connectez-vous avec votre compagnon IA via WhatsApp pour des conversations faciles et pratiques.",
+        share: "Partager",
+        shareDesc: "Répondez à quelques questions simples pour aider votre futur moi à comprendre votre situation et défis actuels.",
+        receiveGuidance: "Recevoir des Conseils",
+        receiveGuidanceDesc: "Obtenez une sagesse personnalisée et une perspective basée sur vos circonstances et objectifs spécifiques.",
+        pricing: "Prix Simple et Abordable",
+        perWeek: "par semaine",
+        unlimitedConv: "Conversations illimitées avec votre moi de 80 ans",
+        dailyInspiration: "Inspiration quotidienne basée sur vos livres et films préférés",
+        personalizedGuidance: "Conseils personnalisés pour la santé, les finances et la carrière",
+        readyToMeet: "Prêt à Rencontrer Votre Futur Moi?",
+        startConversation: "Commencez une conversation avec votre moi de 80 ans aujourd'hui et gagnez la perspective qui ne vient qu'avec le temps.",
+        subscribeNow: "S'abonner Maintenant - £51.48/an",
+        bySubscribing: "En vous abonnant, vous acceptez nos",
+        termsConditions: "Termes et Conditions"
+      },
+      es: {
+        title: "Conoce a Tu Yo de 80 Años",
+        subtitle: "Obtén sabiduría y perspectiva de tu yo futuro. Nuestro compañero de IA ofrece ideas de toda una vida de experiencia para ayudarte a tomar mejores decisiones hoy.",
+        getStarted: "Comenzar",
+        whyConnect: "¿Por Qué Conectar Con Tu Yo Futuro?",
+        lifeWisdom: "Sabiduría de Vida",
+        lifeWisdomDesc: "Recibe orientación basada en toda una vida de experiencia para ayudarte a evitar arrepentimientos comunes y tomar decisiones más sabias.",
+        healthWellbeing: "Salud y Bienestar",
+        healthWellbeingDesc: "Obtén perspectiva sobre lo que realmente importa para la salud y felicidad a largo plazo de alguien que lo ha vivido.",
+        careerFinance: "Carrera y Finanzas",
+        careerFinanceDesc: "Comprende el impacto a largo plazo de las decisiones financieras y profesionales de hoy con ideas de tu futuro.",
+        howItWorks: "Cómo Funciona",
+        connect: "Conectar",
+        connectDesc: "Suscríbete y conecta con tu compañero de IA a través de WhatsApp para conversaciones fáciles y convenientes.",
+        share: "Compartir",
+        shareDesc: "Responde algunas preguntas simples para ayudar a tu yo futuro a entender tu situación y desafíos actuales.",
+        receiveGuidance: "Recibir Orientación",
+        receiveGuidanceDesc: "Obtén sabiduría personalizada y perspectiva basada en tus circunstancias y objetivos específicos.",
+        pricing: "Precios Simples y Asequibles",
+        perWeek: "por semana",
+        unlimitedConv: "Conversaciones ilimitadas con tu yo de 80 años",
+        dailyInspiration: "Inspiración diaria basada en tus libros y películas favoritas",
+        personalizedGuidance: "Orientación personalizada para salud, finanzas y carrera",
+        readyToMeet: "¿Listo Para Conocer a Tu Yo Futuro?",
+        startConversation: "Comienza una conversación con tu yo de 80 años hoy y obtén la perspectiva que solo viene con el tiempo.",
+        subscribeNow: "Suscribirse Ahora - £51.48/año",
+        bySubscribing: "Al suscribirte, aceptas nuestros",
+        termsConditions: "Términos y Condiciones"
+      },
+      de: {
+        title: "Treffen Sie Ihr 80-jähriges Ich",
+        subtitle: "Gewinnen Sie Weisheit und Perspektive von Ihrem zukünftigen Ich. Unser KI-Begleiter bietet Einblicke aus einem Leben voller Erfahrungen, um Ihnen zu helfen, heute bessere Entscheidungen zu treffen.",
+        getStarted: "Loslegen",
+        whyConnect: "Warum Mit Ihrem Zukünftigen Ich Verbinden?",
+        lifeWisdom: "Lebensweisheit",
+        lifeWisdomDesc: "Erhalten Sie Führung basierend auf einem Leben voller Erfahrungen, um häufige Bedauern zu vermeiden und weisere Entscheidungen zu treffen.",
+        healthWellbeing: "Gesundheit & Wohlbefinden",
+        healthWellbeingDesc: "Gewinnen Sie Perspektive darüber, was wirklich für langfristige Gesundheit und Glück wichtig ist, von jemandem, der es gelebt hat.",
+        careerFinance: "Karriere & Finanzen",
+        careerFinanceDesc: "Verstehen Sie die langfristigen Auswirkungen heutiger finanzieller und beruflicher Entscheidungen mit Einblicken aus Ihrer Zukunft.",
+        howItWorks: "Wie Es Funktioniert",
+        connect: "Verbinden",
+        connectDesc: "Abonnieren Sie und verbinden Sie sich mit Ihrem KI-Begleiter über WhatsApp für einfache, bequeme Gespräche.",
+        share: "Teilen",
+        shareDesc: "Beantworten Sie einige einfache Fragen, um Ihrem zukünftigen Ich zu helfen, Ihre aktuelle Situation und Herausforderungen zu verstehen.",
+        receiveGuidance: "Führung Erhalten",
+        receiveGuidanceDesc: "Erhalten Sie personalisierte Weisheit und Perspektive basierend auf Ihren spezifischen Umständen und Zielen.",
+        pricing: "Einfache, Erschwingliche Preise",
+        perWeek: "pro Woche",
+        unlimitedConv: "Unbegrenzte Gespräche mit Ihrem 80-jährigen Ich",
+        dailyInspiration: "Tägliche Inspiration basierend auf Ihren Lieblingsbüchern und -filmen",
+        personalizedGuidance: "Personalisierte Führung für Gesundheit, Finanzen und Karriere",
+        readyToMeet: "Bereit, Ihr Zukünftiges Ich Zu Treffen?",
+        startConversation: "Beginnen Sie heute ein Gespräch mit Ihrem 80-jährigen Ich und gewinnen Sie die Perspektive, die nur mit der Zeit kommt.",
+        subscribeNow: "Jetzt Abonnieren - £51.48/Jahr",
+        bySubscribing: "Durch das Abonnieren stimmen Sie unseren",
+        termsConditions: "Geschäftsbedingungen"
+      },
+      it: {
+        title: "Incontra Il Tuo Io di 80 Anni",
+        subtitle: "Ottieni saggezza e prospettiva dal tuo io futuro. Il nostro compagno IA offre intuizioni da una vita di esperienza per aiutarti a prendere decisioni migliori oggi.",
+        getStarted: "Inizia",
+        whyConnect: "Perché Connettersi Con Il Tuo Io Futuro?",
+        lifeWisdom: "Saggezza di Vita",
+        lifeWisdomDesc: "Ricevi guida basata su una vita di esperienza per aiutarti a evitare rimpianti comuni e fare scelte più sagge.",
+        healthWellbeing: "Salute e Benessere",
+        healthWellbeingDesc: "Ottieni prospettiva su ciò che conta davvero per la salute e felicità a lungo termine da qualcuno che l'ha vissuto.",
+        careerFinance: "Carriera e Finanze",
+        careerFinanceDesc: "Comprendi l'impatto a lungo termine delle decisioni finanziarie e di carriera di oggi con intuizioni dal tuo futuro.",
+        howItWorks: "Come Funziona",
+        connect: "Connetti",
+        connectDesc: "Iscriviti e connettiti con il tuo compagno IA tramite WhatsApp per conversazioni facili e convenienti.",
+        share: "Condividi",
+        shareDesc: "Rispondi ad alcune semplici domande per aiutare il tuo io futuro a capire la tua situazione e sfide attuali.",
+        receiveGuidance: "Ricevi Guida",
+        receiveGuidanceDesc: "Ottieni saggezza personalizzata e prospettiva basata sulle tue circostanze e obiettivi specifici.",
+        pricing: "Prezzi Semplici e Convenienti",
+        perWeek: "a settimana",
+        unlimitedConv: "Conversazioni illimitate con il tuo io di 80 anni",
+        dailyInspiration: "Ispirazione quotidiana basata sui tuoi libri e film preferiti",
+        personalizedGuidance: "Guida personalizzata per salute, finanze e carriera",
+        readyToMeet: "Pronto a Incontrare Il Tuo Io Futuro?",
+        startConversation: "Inizia una conversazione con il tuo io di 80 anni oggi e ottieni la prospettiva che arriva solo con il tempo.",
+        subscribeNow: "Iscriviti Ora - £51.48/anno",
+        bySubscribing: "Iscrivendoti, accetti i nostri",
+        termsConditions: "Termini e Condizioni"
+      },
+      nl: {
+        title: "Ontmoet Je 80-Jarige Zelf",
+        subtitle: "Verkrijg wijsheid en perspectief van je toekomstige zelf. Onze AI-metgezel biedt inzichten uit een leven vol ervaring om je te helpen vandaag betere beslissingen te nemen.",
+        getStarted: "Begin",
+        whyConnect: "Waarom Verbinden Met Je Toekomstige Zelf?",
+        lifeWisdom: "Levenswijsheid",
+        lifeWisdomDesc: "Ontvang begeleiding gebaseerd op een leven vol ervaring om je te helpen veelvoorkomende spijt te vermijden en wijzere keuzes te maken.",
+        healthWellbeing: "Gezondheid & Welzijn",
+        healthWellbeingDesc: "Krijg perspectief op wat er echt toe doet voor langetermijn gezondheid en geluk van iemand die het heeft meegemaakt.",
+        careerFinance: "Carrière & Financiën",
+        careerFinanceDesc: "Begrijp de langetermijn impact van vandaag's financiële en carrière beslissingen met inzichten van je toekomst.",
+        howItWorks: "Hoe Het Werkt",
+        connect: "Verbinden",
+        connectDesc: "Abonneer je en verbind met je AI-metgezel via WhatsApp voor gemakkelijke, handige gesprekken.",
+        share: "Delen",
+        shareDesc: "Beantwoord een paar eenvoudige vragen om je toekomstige zelf te helpen je huidige situatie en uitdagingen te begrijpen.",
+        receiveGuidance: "Ontvang Begeleiding",
+        receiveGuidanceDesc: "Krijg gepersonaliseerde wijsheid en perspectief gebaseerd op je specifieke omstandigheden en doelen.",
+        pricing: "Eenvoudige, Betaalbare Prijzen",
+        perWeek: "per week",
+        unlimitedConv: "Onbeperkte gesprekken met je 80-jarige zelf",
+        dailyInspiration: "Dagelijkse inspiratie gebaseerd op je favoriete boeken en films",
+        personalizedGuidance: "Gepersonaliseerde begeleiding voor gezondheid, financiën en carrière",
+        readyToMeet: "Klaar Om Je Toekomstige Zelf Te Ontmoeten?",
+        startConversation: "Begin vandaag een gesprek met je 80-jarige zelf en krijg het perspectief dat alleen komt met tijd.",
+        subscribeNow: "Abonneer Nu - £51.48/jaar",
+        bySubscribing: "Door je te abonneren, ga je akkoord met onze",
+        termsConditions: "Voorwaarden"
+      }
+    };
+
+    // Function to change language
+    function changeLanguage() {
+      const selectedLang = document.getElementById('language-dropdown').value;
+      const translation = translations[selectedLang];
+      
+      if (translation) {
+        // Update all translatable elements
+        document.querySelector('.hero h1').textContent = translation.title;
+        document.querySelector('.hero p').textContent = translation.subtitle;
+        document.querySelector('.hero .btn').textContent = translation.getStarted;
+        
+        document.querySelector('.features h2').textContent = translation.whyConnect;
+        
+        const featureCards = document.querySelectorAll('.feature-card');
+        featureCards[0].querySelector('h3').textContent = translation.lifeWisdom;
+        featureCards[0].querySelector('p').textContent = translation.lifeWisdomDesc;
+        featureCards[1].querySelector('h3').textContent = translation.healthWellbeing;
+        featureCards[1].querySelector('p').textContent = translation.healthWellbeingDesc;
+        featureCards[2].querySelector('h3').textContent = translation.careerFinance;
+        featureCards[2].querySelector('p').textContent = translation.careerFinanceDesc;
+        
+        document.querySelector('.how-it-works h2').textContent = translation.howItWorks;
+        
+        const steps = document.querySelectorAll('.step');
+        steps[0].querySelector('h3').textContent = translation.connect;
+        steps[0].querySelector('p').textContent = translation.connectDesc;
+        steps[1].querySelector('h3').textContent = translation.share;
+        steps[1].querySelector('p').textContent = translation.shareDesc;
+        steps[2].querySelector('h3').textContent = translation.receiveGuidance;
+        steps[2].querySelector('p').textContent = translation.receiveGuidanceDesc;
+        
+        document.querySelector('.pricing h2').textContent = translation.pricing;
+        document.querySelector('.price-period').textContent = translation.perWeek;
+        
+        const pricingPs = document.querySelectorAll('.pricing p');
+        pricingPs[1].textContent = translation.unlimitedConv;
+        pricingPs[2].textContent = translation.dailyInspiration;
+        pricingPs[3].textContent = translation.personalizedGuidance;
+        
+        document.querySelector('.cta h2').textContent = translation.readyToMeet;
+        document.querySelector('.cta p').textContent = translation.startConversation;
+        document.querySelector('.whatsapp-button').textContent = translation.subscribeNow;
+        
+        // Update the terms acceptance text
+        const termsText = document.querySelector('.cta p:last-of-type');
+        if (termsText) {
+          termsText.innerHTML = `${translation.bySubscribing} <a href="legal.html" style="color: var(--light); text-decoration: underline;">${translation.termsConditions}</a>`;
+        }
+        
+        // Store language preference
+        localStorage.setItem('selectedLanguage', selectedLang);
+      }
+    }
+
+    // Load saved language preference on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLanguage = localStorage.getItem('selectedLanguage');
+      if (savedLanguage && translations[savedLanguage]) {
+        document.getElementById('language-dropdown').value = savedLanguage;
+        changeLanguage();
+      }
+    });
+  </script>
 </body>
 </html>
