@@ -3,291 +3,727 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal - Privacy Policy & Terms and Conditions</title>
+    <title>Legal - Privacy Policy & Terms and Conditions | Future Self</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            max-width: 900px; 
-            margin: 0 auto; 
-            padding: 20px; 
-            line-height: 1.6; 
+        :root {
+            --primary: #4F6D7A;
+            --secondary: #DD6E42;
+            --light: #E8DAB2;
+            --dark: #292F36;
+            --white: #F4F4F9;
         }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
         .nav-menu {
-            background: #f5f5f5;
-            padding: 15px;
-            margin-bottom: 30px;
-            border-radius: 5px;
+            background: var(--light);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
+        
         .nav-menu a {
-            margin-right: 20px;
+            display: inline-block;
+            margin: 0 15px 10px 15px;
+            padding: 10px 20px;
             text-decoration: none;
-            color: #007cba;
+            color: var(--primary);
             font-weight: bold;
+            background-color: var(--white);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
         }
+        
+        .nav-menu a:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 109, 122, 0.3);
+        }
+        
+        .home-btn {
+            background-color: var(--secondary) !important;
+            color: var(--white) !important;
+            border-color: var(--secondary) !important;
+        }
+        
+        .home-btn:hover {
+            background-color: #c55a35 !important;
+            border-color: #c55a35 !important;
+        }
+        
+        .legal-content {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 15px;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin: 30px 0 15px 0;
+            padding: 10px 0;
+            border-left: 4px solid var(--secondary);
+            padding-left: 15px;
+        }
+        
+        h3 {
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .effective-date {
+            background-color: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+            color: var(--dark);
+        }
+        
         .section {
-            margin-bottom: 50px;
-            border-bottom: 2px solid #eee;
+            margin-bottom: 40px;
             padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
         }
-        h1 { color: #333; }
-        h2 { color: #555; margin-top: 30px; }
-        h3 { color: #666; }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .contact-info {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .contact-info h3 {
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+        
+        .contact-info a {
+            color: var(--light);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--secondary);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(221, 110, 66, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(221, 110, 66, 0.4);
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 0 10px;
+            }
+            
+            .legal-content {
+                padding: 20px;
+                margin: 15px 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            .nav-menu a {
+                display: block;
+                margin: 10px 0;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Content formatting */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 5px;
+        }
+        
+        strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        em {
+            font-style: italic;
+            color: var(--dark);
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body>
-    <div class="nav-menu">
-        <a href="#privacy-policy">Privacy Policy</a>
-        <a href="#terms-conditions">Terms & Conditions</a>
-        <a href="/">← Back to Home</a>
+    <header>
+        <div class="container">
+            <h1>Future Self - Legal Information</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="nav-menu">
+            <a href="#privacy-policy">Privacy Policy</a>
+            <a href="#terms-conditions">Terms & Conditions</a>
+            <a href="/" class="home-btn">← Back to Home</a>
+        </div>
+
+        <div id="terms-conditions" class="legal-content">
+            <h1>Terms and Conditions and Privacy Policy</h1>
+            
+            <div class="effective-date">
+                <p><strong>Effective Date:</strong> 27 May 2025<br>
+                <strong>Last Updated:</strong> 27 May 2025</p>
+            </div>
+
+            <div class="section">
+                <h2>1. Agreement to Terms</h2>
+                <p>By accessing and using our aging selfie service ("Service"), you agree to be bound by these Terms and Conditions ("Terms"). If you do not agree to these Terms, please do not use our Service.</p>
+                
+                <div class="contact-info">
+                    <h3>Service Provider Information</h3>
+                    <p><strong>Service Provider:</strong> Owango Renaissance Ltd<br>
+                    <strong>Contact:</strong> <a href="mailto:80you-aicompanion@gmail.com">80you-aicompanion@gmail.com</a><br>
+                    <strong>Address:</strong> Brentwood, United Kingdom</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>2. Description of Service</h2>
+                <h3>2.1 Service Overview</h3>
+                <p>Our Service provides an AI-powered aging simulation that:</p>
+                <ul>
+                    <li>Processes your selfie images to show how you might look at age 80</li>
+                    <li>Provides conversational interaction through a chatbot persona</li>
+                    <li>Delivers results via WhatsApp or other messaging platforms</li>
+                </ul>
+                
+                <h3>2.2 Service Availability</h3>
+                <ul>
+                    <li>Service is provided "as available" basis</li>
+                    <li>We may modify, suspend, or discontinue the Service at any time</li>
+                    <li>No guarantee of continuous, uninterrupted access</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>3. User Eligibility and Account Requirements</h2>
+                <h3>3.1 Age Requirements</h3>
+                <ul>
+                    <li>Users must be <strong>16 years or older</strong></li>
+                    <li>Users under 18 require parental/guardian consent</li>
+                    <li>We reserve the right to verify age and request proof</li>
+                </ul>
+                
+                <h3>3.2 Account Responsibilities</h3>
+                <ul>
+                    <li>Provide accurate information when requested</li>
+                    <li>Maintain security of your messaging platform account</li>
+                    <li>Notify us immediately of any unauthorized use</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4. Acceptable Use Policy</h2>
+                <h3>4.1 Permitted Uses</h3>
+                <ul>
+                    <li>Personal, non-commercial use of the aging simulation</li>
+                    <li>Sharing results for personal entertainment</li>
+                    <li>Using the Service as intended and described</li>
+                </ul>
+                
+                <h3>4.2 Prohibited Uses</h3>
+                <p>You may <strong>NOT</strong> use our Service to:</p>
+                <ul>
+                    <li>Upload images of other people without their explicit consent</li>
+                    <li>Submit copyrighted images you don't own</li>
+                    <li>Upload inappropriate, offensive, or illegal content</li>
+                    <li>Attempt to reverse-engineer or exploit our technology</li>
+                    <li>Use the Service for commercial purposes without authorization</li>
+                    <li>Harass, abuse, or harm other users or our systems</li>
+                    <li>Violate any applicable laws or regulations</li>
+                </ul>
+                
+                <h3>4.3 Content Guidelines</h3>
+                <div class="highlight">
+                    <strong>Prohibited Content:</strong>
+                    <ul>
+                        <li>Images containing nudity or sexual content</li>
+                        <li>Images of minors (under 18 years old)</li>
+                        <li>Violent, threatening, or hateful imagery</li>
+                        <li>Copyrighted material without permission</li>
+                        <li>Images intended to deceive or defraud others</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>5. Image Processing and AI Technology</h2>
+                <h3>5.1 Image Requirements</h3>
+                <ul>
+                    <li>Submit clear, well-lit photos of yourself</li>
+                    <li>Images should show your face clearly</li>
+                    <li>We recommend front-facing selfies for best results</li>
+                </ul>
+                
+                <h3>5.2 Processing Limitations</h3>
+                <div class="highlight">
+                    <ul>
+                        <li>AI results are <strong>estimates and entertainment only</strong></li>
+                        <li>Results may not accurately predict actual aging</li>
+                        <li>Processing time may vary (typically 30-60 seconds)</li>
+                        <li>Technical failures may occur without liability</li>
+                    </ul>
+                </div>
+                
+                <h3>5.3 Third-Party AI Services</h3>
+                <ul>
+                    <li>We use Replicate and other AI services for image processing</li>
+                    <li>These services have their own terms and privacy policies</li>
+                    <li>We are not responsible for third-party service failures</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>6. Privacy and Data Protection</h2>
+                <h3>6.1 GDPR Compliance</h3>
+                <ul>
+                    <li>We comply with the General Data Protection Regulation (GDPR)</li>
+                    <li>Your rights under GDPR are detailed in our Privacy Policy</li>
+                    <li>You can withdraw consent and request data deletion at any time</li>
+                </ul>
+                
+                <h3>6.2 Data Processing</h3>
+                <ul>
+                    <li>Images are processed temporarily and <strong>deleted within 24 hours</strong></li>
+                    <li>Conversation data is retained for <strong>30 days maximum</strong></li>
+                    <li>We implement appropriate security measures to protect your data</li>
+                </ul>
+                
+                <h3>6.3 International Data Transfers</h3>
+                <ul>
+                    <li>Your data may be processed in countries outside the EU/EEA</li>
+                    <li>We ensure adequate protection through appropriate safeguards</li>
+                    <li>See our Privacy Policy for detailed information</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>7. Intellectual Property Rights</h2>
+                <h3>7.1 Our Rights</h3>
+                <ul>
+                    <li>We own all rights to our Service, technology, and software</li>
+                    <li>Our chatbot personality and responses are our intellectual property</li>
+                    <li>Service trademarks and branding belong to us</li>
+                </ul>
+                
+                <h3>7.2 Your Rights</h3>
+                <ul>
+                    <li>You retain ownership of images you submit</li>
+                    <li>You grant us temporary license to process your images</li>
+                    <li>You can use your aged results for personal purposes</li>
+                </ul>
+                
+                <h3>7.3 Generated Content License</h3>
+                <ul>
+                    <li>Aged images created by our Service are provided for your personal use</li>
+                    <li>You may share results on social media with attribution</li>
+                    <li>Commercial use of results requires explicit permission</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>8. Disclaimers and Limitations</h2>
+                <h3>8.1 Service Disclaimers</h3>
+                <p>The Service is provided <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong> without warranties of any kind, including:</p>
+                <ul>
+                    <li>No guarantee of accuracy or reliability</li>
+                    <li>No warranty of fitness for particular purpose</li>
+                    <li>No guarantee of uninterrupted service</li>
+                    <li>No warranty against technical errors</li>
+                </ul>
+                
+                <h3>8.2 AI Technology Limitations</h3>
+                <div class="highlight">
+                    <ul>
+                        <li>Aging predictions are <strong>estimates for entertainment purposes only</strong></li>
+                        <li>Results may not reflect actual aging patterns</li>
+                        <li>AI may not work properly with all image types</li>
+                        <li>Results are not medical or scientific predictions</li>
+                    </ul>
+                </div>
+                
+                <h3>8.3 Third-Party Services</h3>
+                <ul>
+                    <li>We are not responsible for WhatsApp, Replicate, or other third-party services</li>
+                    <li>Third-party outages may affect our Service</li>
+                    <li>Third-party terms and policies also apply</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>9. Limitation of Liability</h2>
+                <h3>9.1 Liability Limits</h3>
+                <p>To the maximum extent permitted by law:</p>
+                <ul>
+                    <li>Our liability is limited to the fees paid for the Service (if any)</li>
+                    <li>We are not liable for indirect, incidental, or consequential damages</li>
+                    <li>We are not liable for data loss, business interruption, or lost profits</li>
+                </ul>
+                
+                <h3>9.2 Exclusions</h3>
+                <p>We are not liable for:</p>
+                <ul>
+                    <li>Misuse of the Service by users</li>
+                    <li>Third-party service failures</li>
+                    <li>Results of AI processing or accuracy of aging predictions</li>
+                    <li>User's violation of these Terms</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>10. Payment Terms and Refund Policy</h2>
+                <h3>10.1 Subscription Fee</h3>
+                <ul>
+                    <li><strong>Annual Subscription:</strong> £52 per year</li>
+                    <li><strong>Payment:</strong> Due in advance for full year</li>
+                    <li><strong>Currency:</strong> All fees are in British Pounds (GBP)</li>
+                    <li><strong>Payment Methods:</strong> As accepted through our payment processor</li>
+                </ul>
+                
+                <h3>10.2 Billing and Renewal</h3>
+                <ul>
+                    <li><strong>Automatic Renewal:</strong> Subscription automatically renews annually unless cancelled</li>
+                    <li><strong>Payment Date:</strong> Charged on the anniversary of your initial subscription date</li>
+                    <li><strong>Failed Payments:</strong> Service may be suspended for non-payment</li>
+                    <li><strong>Price Changes:</strong> We may change subscription fees with 30 days' notice</li>
+                </ul>
+                
+                <h3>10.3 Cancellation Policy</h3>
+                <ul>
+                    <li><strong>Cancellation Right:</strong> You may cancel your subscription at any time</li>
+                    <li><strong>How to Cancel:</strong> Contact us at <a href="mailto:80you-aicompanion@gmail.com">80you-aicompanion@gmail.com</a> or use cancellation method provided</li>
+                    <li><strong>Effective Date:</strong> Cancellation takes effect at the end of your current billing period</li>
+                    <li><strong>Access After Cancellation:</strong> You retain access until the end of your paid period</li>
+                </ul>
+                
+                <h3>10.4 No Refund Policy</h3>
+                <div class="highlight">
+                    <ul>
+                        <li><strong>No Refunds:</strong> All subscription fees are <strong>non-refundable</strong></li>
+                        <li><strong>Partial Periods:</strong> No refunds for unused portions of subscription periods</li>
+                        <li><strong>Service Issues:</strong> Technical problems do not entitle you to refunds</li>
+                        <li><strong>Voluntary Cancellation:</strong> Early cancellation does not result in refund</li>
+                    </ul>
+                </div>
+                
+                <h3>10.5 EU Consumer Rights</h3>
+                <div class="highlight">
+                    <p><strong>Important for EU Consumers:</strong></p>
+                    <ul>
+                        <li>You have a <strong>14-day cooling-off period</strong> from subscription purchase</li>
+                        <li>You may cancel within 14 days for a full refund</li>
+                        <li>This right is waived if you actively use the Service during the cooling-off period</li>
+                        <li>To exercise this right, contact us at <a href="mailto:80you-aicompanion@gmail.com">80you-aicompanion@gmail.com</a></li>
+                    </ul>
+                </div>
+                
+                <h3>10.6 UK Consumer Rights</h3>
+                <div class="highlight">
+                    <p><strong>Important for UK Consumers:</strong></p>
+                    <ul>
+                        <li>You have a <strong>14-day cooling-off period</strong> under the Consumer Contracts Regulations</li>
+                        <li>You may cancel within 14 days for a full refund</li>
+                        <li>This right may be waived if you actively use the Service</li>
+                        <li>Contact us at <a href="mailto:80you-aicompanion@gmail.com">80you-aicompanion@gmail.com</a> to exercise this right</li>
+                    </ul>
+                </div>
+                
+                <h3>10.7 Exceptional Circumstances</h3>
+                <p>We reserve the right to provide refunds at our sole discretion in exceptional circumstances such as:</p>
+                <ul>
+                    <li>Prolonged service outages (over 7 consecutive days)</li>
+                    <li>Fundamental changes to service that materially affect functionality</li>
+                    <li>Legal requirements in your jurisdiction</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>11. Indemnification</h2>
+                <p>You agree to indemnify and hold us harmless from any claims, damages, or expenses arising from:</p>
+                <ul>
+                    <li>Your use of the Service</li>
+                    <li>Your violation of these Terms</li>
+                    <li>Your violation of any third-party rights</li>
+                    <li>Your submission of inappropriate or illegal content</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>12. Service Modifications and Termination</h2>
+                <h3>12.1 Service Changes</h3>
+                <p>We reserve the right to:</p>
+                <ul>
+                    <li>Modify or update the Service at any time</li>
+                    <li>Change these Terms with 30 days' notice</li>
+                    <li>Add or remove features without prior notice</li>
+                    <li>Implement usage limits or restrictions</li>
+                </ul>
+                
+                <h3>12.2 Termination Rights</h3>
+                <p>We may terminate or suspend your access if you:</p>
+                <ul>
+                    <li>Violate these Terms or our policies</li>
+                    <li>Engage in prohibited activities</li>
+                    <li>Provide false or misleading information</li>
+                    <li>Use the Service in ways that harm our systems or other users</li>
+                </ul>
+                
+                <h3>12.3 Effect of Termination</h3>
+                <p>Upon termination:</p>
+                <ul>
+                    <li>Your right to use the Service immediately ceases</li>
+                    <li>We will delete your data according to our Privacy Policy</li>
+                    <li>These Terms continue to apply to past use of the Service</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>13. Dispute Resolution</h2>
+                <h3>13.1 Governing Law</h3>
+                <p>These Terms are governed by the laws of <strong>England</strong>, without regard to conflict of law principles.</p>
+                
+                <h3>13.2 Dispute Resolution Process</h3>
+                <ol>
+                    <li><strong>Informal Resolution:</strong> Contact us first to resolve disputes informally</li>
+                    <li><strong>Mediation:</strong> If needed, disputes will be resolved through mediation</li>
+                    <li><strong>Arbitration:</strong> Binding arbitration if mediation fails (where legally permissible)</li>
+                    <li><strong>Court Jurisdiction:</strong> England and Wales have exclusive jurisdiction</li>
+                </ol>
+                
+                <h3>13.3 EU Consumer Rights</h3>
+                <p>EU consumers retain all rights under applicable consumer protection laws, including the right to bring disputes before their local courts.</p>
+            </div>
+
+            <div class="section">
+                <h2>14. GDPR-Specific Terms</h2>
+                <h3>14.1 Data Controller</h3>
+                <p>We act as the data controller for personal data processed through our Service.</p>
+                
+                <h3>14.2 Legal Basis</h3>
+                <p>We process your data based on:</p>
+                <ul>
+                    <li>Your consent for image processing</li>
+                    <li>Legitimate interests for service provision</li>
+                    <li>Contract performance for service delivery</li>
+                </ul>
+                
+                <h3>14.3 Your Rights</h3>
+                <p>Under GDPR, you have rights to:</p>
+                <ul>
+                    <li>Access your personal data</li>
+                    <li>Rectify incorrect data</li>
+                    <li>Erase your data ("right to be forgotten")</li>
+                    <li>Restrict processing</li>
+                    <li>Data portability</li>
+                    <li>Object to processing</li>
+                    <li>Lodge complaints with supervisory authorities</li>
+                </ul>
+                
+                <div class="contact-info">
+                    <h3>14.4 Data Protection Officer</h3>
+                    <p><strong>Contact:</strong> <a href="mailto:80you-aicompanion@gmail.com">80you-aicompanion@gmail.com</a><br>
+                    <strong>Role:</strong> Available for privacy-related questions and concerns</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>15. International Users</h2>
+                <h3>15.1 EU Users</h3>
+                <ul>
+                    <li>We comply with GDPR for EU residents</li>
+                    <li>You have all rights under EU data protection law</li>
+                    <li>Local supervisory authorities can address complaints</li>
+                </ul>
+                
+                <h3>15.2 UK Users</h3>
+                <ul>
+                    <li>We comply with UK GDPR and Data Protection Act 2018</li>
+                    <li>ICO (Information Commissioner's Office) handles UK complaints</li>
+                </ul>
+                
+                <h3>15.3 Other Jurisdictions</h3>
+                <ul>
+                    <li>We comply with applicable local data protection laws</li>
+                    <li>Users are responsible for compliance with local laws in their jurisdiction</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>16. Contact Information</h2>
+                <div class="contact-info">
+                    <h3>For Terms and Service Questions:</h3>
+                    <p><strong>Email:</strong> <a href="mailto:80you-aicompanion@gmail.com">80you-aicompanion@gmail.com</a><br>
+                    <strong>Address:</strong> Brentwood, United Kingdom</p>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>For Privacy and Data Protection:</h3>
+                    <p><strong>Email:</strong> <a href="mailto:80you-aicompanion@gmail.com">80you-aicompanion@gmail.com</a><br>
+                    <strong>Data Protection Officer:</strong> <a href="mailto:80you-aicompanion@gmail.com">80you-aicompanion@gmail.com</a></p>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>EU Representative:</h3>
+                    <p>Owango Renaissance Ltd</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>17. Miscellaneous</h2>
+                <h3>17.1 Entire Agreement</h3>
+                <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and us.</p>
+                
+                <h3>17.2 Severability</h3>
+                <p>If any provision is found unenforceable, the remaining provisions continue in full force.</p>
+                
+                <h3>17.3 Waiver</h3>
+                <p>Our failure to enforce any right does not waive that right.</p>
+                
+                <h3>17.4 Assignment</h3>
+                <p>You may not assign your rights under these Terms. We may assign our rights with notice.</p>
+                
+                <h3>17.5 Updates</h3>
+                <p>We will notify users of material changes to these Terms via:</p>
+                <ul>
+                    <li>Service notifications</li>
+                    <li>Email (if provided)</li>
+                    <li>Website posting</li>
+                </ul>
+            </div>
+
+            <div class="highlight">
+                <p><strong>Acknowledgment:</strong> By using our Service, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions and our Privacy Policy.</p>
+                
+                <p><em>These Terms and Conditions are designed to comply with GDPR and international data protection requirements. We recommend having them reviewed by qualified legal counsel to ensure full compliance with your specific circumstances and applicable laws.</em></p>
+            </div>
+        </div>
     </div>
 
-    <div id="terms-conditions" class="section">
-        <h1>Terms and Conditions and Privacy Policy</h1>
-<p>Effective Date: 27 May 2025
-Last Updated: 27 May 2025</p>
-<h2><strong>1. Agreement to Terms</strong><h2></h2>
-By accessing and using our aging selfie service ("Service"), you agree to be bound by these Terms and Conditions ("Terms"). If you do not agree to these Terms, please do not use our Service.
-Service Provider: Owango Renaissance Ltd
- Contact: 80you-aicompanion@gmail.com
- Address: Brentwood, United Kingdom
-<strong>2. Description of Service</strong>
-2.1 Service Overview
-Our Service provides an AI-powered aging simulation that:
-Processes your selfie images to show how you might look at age 80
-Provides conversational interaction through a chatbot persona
-Delivers results via WhatsApp or other messaging platforms
-2.2 Service Availability
-Service is provided "as available" basis
-We may modify, suspend, or discontinue the Service at any time
-No guarantee of continuous, uninterrupted access
-<strong>3. User Eligibility and Account Requirements</strong>
-3.1 Age Requirements
-Users must be 16 years or older
-Users under 18 require parental/guardian consent
-We reserve the right to verify age and request proof
-3.2 Account Responsibilities
-Provide accurate information when requested
-Maintain security of your messaging platform account
-Notify us immediately of any unauthorized use
-<strong>4. Acceptable Use Policy</strong>
-4.1 Permitted Uses
-Personal, non-commercial use of the aging simulation
-Sharing results for personal entertainment
-Using the Service as intended and described
-4.2 Prohibited Uses
-You may NOT use our Service to:
-Upload images of other people without their explicit consent
-Submit copyrighted images you don't own
-Upload inappropriate, offensive, or illegal content
-Attempt to reverse-engineer or exploit our technology
-Use the Service for commercial purposes without authorization
-Harass, abuse, or harm other users or our systems
-Violate any applicable laws or regulations
-4.3 Content Guidelines
-Prohibited Content:
-Images containing nudity or sexual content
-Images of minors (under 18 years old)
-Violent, threatening, or hateful imagery
-Copyrighted material without permission
-Images intended to deceive or defraud others
-<strong>5. Image Processing and AI Technology</strong>
-5.1 Image Requirements
-Submit clear, well-lit photos of yourself
-Images should show your face clearly
-We recommend front-facing selfies for best results
-5.2 Processing Limitations
-AI results are estimates and entertainment only
-Results may not accurately predict actual aging
-Processing time may vary (typically 30-60 seconds)
-Technical failures may occur without liability
-5.3 Third-Party AI Services
-We use Replicate and other AI services for image processing
-These services have their own terms and privacy policies
-We are not responsible for third-party service failures
-<srong>6. Privacy and Data Protection</srong>
-6.1 GDPR Compliance
-We comply with the General Data Protection Regulation (GDPR)
-Your rights under GDPR are detailed in our Privacy Policy
-You can withdraw consent and request data deletion at any time
-6.2 Data Processing
-Images are processed temporarily and deleted within 24 hours
-Conversation data is retained for 30 days maximum
-We implement appropriate security measures to protect your data
-6.3 International Data Transfers
-Your data may be processed in countries outside the EU/EEA
-We ensure adequate protection through appropriate safeguards
-See our Privacy Policy for detailed information
-<strong>7. Intellectual Property Rights</strong>
-7.1 Our Rights
-We own all rights to our Service, technology, and software
-Our chatbot personality and responses are our intellectual property
-Service trademarks and branding belong to us
-7.2 Your Rights
-You retain ownership of images you submit
-You grant us temporary license to process your images
-You can use your aged results for personal purposes
-7.3 Generated Content License
-Aged images created by our Service are provided for your personal use
-You may share results on social media with attribution
-Commercial use of results requires explicit permission
-<strong>8. Disclaimers and Limitations</strong>
-8.1 Service Disclaimers
-The Service is provided "AS IS" and "AS AVAILABLE" without warranties of any kind, including:
-No guarantee of accuracy or reliability
-No warranty of fitness for particular purpose
-No guarantee of uninterrupted service
-No warranty against technical errors
-8.2 AI Technology Limitations
-Aging predictions are estimates for entertainment purposes only
-Results may not reflect actual aging patterns
-AI may not work properly with all image types
-Results are not medical or scientific predictions
-8.3 Third-Party Services
-We are not responsible for WhatsApp, Replicate, or other third-party services
-Third-party outages may affect our Service
-Third-party terms and policies also apply
-<strong>9. Limitation of Liability</strong>
-9.1 Liability Limits
-To the maximum extent permitted by law:
-Our liability is limited to the fees paid for the Service (if any)
-We are not liable for indirect, incidental, or consequential damages
-We are not liable for data loss, business interruption, or lost profits
-9.2 Exclusions
-We are not liable for:
-Misuse of the Service by users
-Third-party service failures
-Results of AI processing or accuracy of aging predictions
-User's violation of these Terms
-<strong>10. Payment Terms and Refund Policy</strong>
-10.1 Subscription Fee
-Annual Subscription: £52 per year
-Payment: Due in advance for full year
-Currency: All fees are in British Pounds (GBP)
-Payment Methods: As accepted through our payment processor
-10.2 Billing and Renewal
-Automatic Renewal: Subscription automatically renews annually unless cancelled
-Payment Date: Charged on the anniversary of your initial subscription date
-Failed Payments: Service may be suspended for non-payment
-Price Changes: We may change subscription fees with 30 days' notice
-10.3 Cancellation Policy
-Cancellation Right: You may cancel your subscription at any time
-How to Cancel: Contact us at 80you-aicompanion@gmail.com or use cancellation method provided
-Effective Date: Cancellation takes effect at the end of your current billing period
-Access After Cancellation: You retain access until the end of your paid period
-10.4 No Refund Policy
-No Refunds: All subscription fees are non-refundable
-Partial Periods: No refunds for unused portions of subscription periods
-Service Issues: Technical problems do not entitle you to refunds
-Voluntary Cancellation: Early cancellation does not result in refund
-10.5 EU Consumer Rights
-Important for EU Consumers:
-You have a 14-day cooling-off period from subscription purchase
-You may cancel within 14 days for a full refund
-This right is waived if you actively use the Service during the cooling-off period
-To exercise this right, contact us at 80you-aicompanion@gmail.com
-10.6 UK Consumer Rights
-Important for UK Consumers:
-You have a 14-day cooling-off period under the Consumer Contracts Regulations
-You may cancel within 14 days for a full refund
-This right may be waived if you actively use the Service
-Contact us at 80you-aicompanion@gmail.com to exercise this right
-10.7 Exceptional Circumstances
-We reserve the right to provide refunds at our sole discretion in exceptional circumstances such as:
-Prolonged service outages (over 7 consecutive days)
-Fundamental changes to service that materially affect functionality
-Legal requirements in your jurisdiction
-10.8 Indemnification
-You agree to indemnify and hold us harmless from any claims, damages, or expenses arising from:
-Your use of the Service
-Your violation of these Terms
-Your violation of any third-party rights
-Your submission of inappropriate or illegal content
-<strong>11. Service Modifications and Termination</strong>
-11.1 Service Changes
-We reserve the right to:
-Modify or update the Service at any time
-Change these Terms with 30 days' notice
-Add or remove features without prior notice
-Implement usage limits or restrictions
-11.2 Termination Rights
-We may terminate or suspend your access if you:
-Violate these Terms or our policies
-Engage in prohibited activities
-Provide false or misleading information
-Use the Service in ways that harm our systems or other users
-11.3 Effect of Termination
-Upon termination:
-Your right to use the Service immediately ceases
-We will delete your data according to our Privacy Policy
-These Terms continue to apply to past use of the Service
-<strong>12. Dispute Resolution</strong>
-12.1 Governing Law
-These Terms are governed by the laws of England, without regard to conflict of law principles.
-12.2 Dispute Resolution Process
-Informal Resolution: Contact us first to resolve disputes informally
-Mediation: If needed, disputes will be resolved through mediation
-Arbitration: Binding arbitration if mediation fails (where legally permissible)
-Court Jurisdiction: England and Wales have exclusive jurisdiction
-12.3 EU Consumer Rights
-EU consumers retain all rights under applicable consumer protection laws, including the right to bring disputes before their local courts.
-<strong>13. GDPR-Specific Terms</strong>
-13.1 Data Controller
-We act as the data controller for personal data processed through our Service.
-13.2 Legal Basis
-We process your data based on:
-Your consent for image processing
-Legitimate interests for service provision
-Contract performance for service delivery
-13.3 Your Rights
-Under GDPR, you have rights to:
-Access your personal data
-Rectify incorrect data
-Erase your data ("right to be forgotten")
-Restrict processing
-Data portability
-Object to processing
-Lodge complaints with supervisory authorities
-13.4 Data Protection Officer
-Contact: 80you-aicompanion@gmail.com
- Role: Available for privacy-related questions and concerns
-<strong>14. International Users</strong>
-14.1 EU Users
-We comply with GDPR for EU residents
-You have all rights under EU data protection law
-Local supervisory authorities can address complaints
-14.2 UK Users
-We comply with UK GDPR and Data Protection Act 2018
-ICO (Information Commissioner's Office) handles UK complaints
-14.3 Other Jurisdictions
-We comply with applicable local data protection laws
-Users are responsible for compliance with local laws in their jurisdiction
-<strong>15. Contact Information</strong>
-For Terms and Service Questions:
- Email: 80you-aicompanion@gmail.com
- Address: Brentwood, United Kingdom
-For Privacy and Data Protection:
- Email: 80you-aicompanion@gmail.com
- Data Protection Officer: 80you-aicompanion@gmail.com
-EU Representative: Owango Renaissance Ltd
-<strong>16. Miscellaneous</strong>
-16.1 Entire Agreement
-These Terms, together with our Privacy Policy, constitute the entire agreement between you and us.
-16.2 Severability
-If any provision is found unenforceable, the remaining provisions continue in full force.
-16.3 Waiver
-Our failure to enforce any right does not waive that right.
-16.4 Assignment
-You may not assign your rights under these Terms. We may assign our rights with notice.
-16.5 Updates
-We will notify users of material changes to these Terms via:
-Service notifications
-Email (if provided)
-Website posting
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 80YOU AI Companion is a brand of Owango Renaissance Ltd. All rights reserved.</p>
+        </div>
+    </footer>
 
-<em>Acknowledgment: By using our Service, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions and our Privacy Policy.
-These Terms and Conditions are designed to comply with GDPR and international data protection requirements. We recommend having them reviewed by qualified legal counsel to ensure full compliance with your specific circumstances and applicable laws.
-</em>
+    <a href="#" class="back-to-top">↑</a>
 
-    </div>
-</body>
-</html>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior:
