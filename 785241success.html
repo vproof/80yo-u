@@ -41,6 +41,55 @@
             text-align: center;
         }
         
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .header-content h1 {
+            margin: 0;
+            flex: 1;
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-selector select {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 140px;
+        }
+        
+        .language-selector select:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .language-selector select:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: var(--light);
+            box-shadow: 0 0 0 3px rgba(232, 218, 178, 0.3);
+        }
+        
+        .language-selector option {
+            background-color: var(--white);
+            color: var(--dark);
+            padding: 8px 12px;
+        }
+        
         .success-card {
             background-color: white;
             border-radius: 15px;
@@ -132,13 +181,45 @@
                 padding: 25px;
                 margin: 15px 0;
             }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-content h1 {
+                order: 2;
+            }
+            
+            .language-selector {
+                order: 1;
+                align-self: flex-end;
+            }
+            
+            .language-selector select {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+                min-width: 120px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>🎉 Welcome to Future Self!</h1>
+            <div class="header-content">
+                <h1>🎉 Welcome to Future Self!</h1>
+                <div class="language-selector">
+                    <select id="language-dropdown" onchange="changeLanguage()">
+                        <option value="en" selected>🇬🇧 English</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="it">🇮🇹 Italiano</option>
+                        <option value="nl">🇳🇱 Nederlands</option>
+                    </select>
+                </div>
+            </div>
             <p>Your subscription is now active</p>
         </div>
     </header>
@@ -154,8 +235,7 @@
                 <p>Click the button below to start chatting with your future self on WhatsApp:</p>
                 
                 <!-- Replace with your actual WhatsApp link -->
-                <a href="https://wa.me/15557842058?text=Chat%20with%20Your%2080-Year-Old%20Self
-                                            " class="whatsapp-button">
+                <a href="https://wa.me/15557842058?text=Hello%2C%20I%20just%20subscribed%20and%20want%20to%20meet%20my%2080-year-old%20self!" class="whatsapp-button">
                     💬 Chat with Your Future Self
                 </a>
                 
@@ -205,5 +285,234 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        // Language translations object
+        const translations = {
+            en: {
+                welcome: "🎉 Welcome to Future Self!",
+                subscriptionActive: "Your subscription is now active",
+                paymentSuccessful: "Payment Successful!",
+                thankYou: "Thank you for subscribing to Future Self AI Companion. Your annual subscription is now active and you have full access to chat with your 80-year-old self.",
+                startJourney: "🚀 Start Your Journey Now",
+                clickButton: "Click the button below to start chatting with your future self on WhatsApp:",
+                chatButton: "💬 Chat with Your Future Self",
+                saveNumber: "Save this number:",
+                whatNext: "What happens next?",
+                step1: "Click the WhatsApp button above to start your first conversation",
+                step2: "Send a selfie to see what you'll look like at 80",
+                step3: "Ask questions about life, career, health, or anything you're curious about",
+                step4: "Get daily wisdom and perspective from your future self",
+                step5: "Enjoy unlimited conversations for the next 12 months",
+                needHelp: "📧 Need Help?",
+                helpText: "If you have any questions or need support, contact us at:",
+                responseTime: "Response Time: Within 24 hours",
+                subscriptionDetails: "📋 Subscription Details",
+                plan: "Plan: Future Self AI Companion - Annual",
+                price: "Price: £51.48 per year",
+                renewal: "Renewal: Automatic (you can cancel anytime)",
+                access: "Access: Unlimited conversations via WhatsApp",
+                coolingOff: "Remember: You have a 14-day cooling-off period. If you're not satisfied and haven't actively used the service, you can request a full refund by contacting us."
+            },
+            fr: {
+                welcome: "🎉 Bienvenue dans Future Self!",
+                subscriptionActive: "Votre abonnement est maintenant actif",
+                paymentSuccessful: "Paiement Réussi!",
+                thankYou: "Merci de vous être abonné à Future Self AI Companion. Votre abonnement annuel est maintenant actif et vous avez un accès complet pour discuter avec votre moi de 80 ans.",
+                startJourney: "🚀 Commencez Votre Voyage Maintenant",
+                clickButton: "Cliquez sur le bouton ci-dessous pour commencer à discuter avec votre futur moi sur WhatsApp:",
+                chatButton: "💬 Discutez avec Votre Futur Moi",
+                saveNumber: "Sauvegardez ce numéro:",
+                whatNext: "Que se passe-t-il ensuite?",
+                step1: "Cliquez sur le bouton WhatsApp ci-dessus pour commencer votre première conversation",
+                step2: "Envoyez un selfie pour voir à quoi vous ressemblerez à 80 ans",
+                step3: "Posez des questions sur la vie, la carrière, la santé, ou tout ce qui vous intéresse",
+                step4: "Obtenez de la sagesse quotidienne et de la perspective de votre futur moi",
+                step5: "Profitez de conversations illimitées pendant les 12 prochains mois",
+                needHelp: "📧 Besoin d'Aide?",
+                helpText: "Si vous avez des questions ou besoin d'assistance, contactez-nous à:",
+                responseTime: "Temps de réponse: Dans les 24 heures",
+                subscriptionDetails: "📋 Détails de l'Abonnement",
+                plan: "Plan: Future Self AI Companion - Annuel",
+                price: "Prix: £51.48 par an",
+                renewal: "Renouvellement: Automatique (vous pouvez annuler à tout moment)",
+                access: "Accès: Conversations illimitées via WhatsApp",
+                coolingOff: "Rappel: Vous avez une période de réflexion de 14 jours. Si vous n'êtes pas satisfait et n'avez pas utilisé activement le service, vous pouvez demander un remboursement complet en nous contactant."
+            },
+            es: {
+                welcome: "🎉 ¡Bienvenido a Future Self!",
+                subscriptionActive: "Tu suscripción está ahora activa",
+                paymentSuccessful: "¡Pago Exitoso!",
+                thankYou: "Gracias por suscribirte a Future Self AI Companion. Tu suscripción anual está ahora activa y tienes acceso completo para chatear con tu yo de 80 años.",
+                startJourney: "🚀 Comienza Tu Viaje Ahora",
+                clickButton: "Haz clic en el botón de abajo para comenzar a chatear con tu yo futuro en WhatsApp:",
+                chatButton: "💬 Chatea con Tu Yo Futuro",
+                saveNumber: "Guarda este número:",
+                whatNext: "¿Qué sigue?",
+                step1: "Haz clic en el botón de WhatsApp arriba para comenzar tu primera conversación",
+                step2: "Envía un selfie para ver cómo te verás a los 80",
+                step3: "Haz preguntas sobre la vida, carrera, salud, o cualquier cosa que te interese",
+                step4: "Obtén sabiduría diaria y perspectiva de tu yo futuro",
+                step5: "Disfruta conversaciones ilimitadas durante los próximos 12 meses",
+                needHelp: "📧 ¿Necesitas Ayuda?",
+                helpText: "Si tienes alguna pregunta o necesitas soporte, contáctanos en:",
+                responseTime: "Tiempo de respuesta: Dentro de 24 horas",
+                subscriptionDetails: "📋 Detalles de Suscripción",
+                plan: "Plan: Future Self AI Companion - Anual",
+                price: "Precio: £51.48 por año",
+                renewal: "Renovación: Automática (puedes cancelar en cualquier momento)",
+                access: "Acceso: Conversaciones ilimitadas vía WhatsApp",
+                coolingOff: "Recuerda: Tienes un período de reflexión de 14 días. Si no estás satisfecho y no has usado activamente el servicio, puedes solicitar un reembolso completo contactándonos."
+            },
+            de: {
+                welcome: "🎉 Willkommen bei Future Self!",
+                subscriptionActive: "Ihr Abonnement ist jetzt aktiv",
+                paymentSuccessful: "Zahlung Erfolgreich!",
+                thankYou: "Vielen Dank für Ihr Abonnement bei Future Self AI Companion. Ihr Jahresabonnement ist jetzt aktiv und Sie haben vollen Zugang, um mit Ihrem 80-jährigen Ich zu chatten.",
+                startJourney: "🚀 Beginnen Sie Ihre Reise Jetzt",
+                clickButton: "Klicken Sie auf den Button unten, um mit Ihrem zukünftigen Ich auf WhatsApp zu chatten:",
+                chatButton: "💬 Chatten Sie mit Ihrem Zukünftigen Ich",
+                saveNumber: "Speichern Sie diese Nummer:",
+                whatNext: "Was passiert als nächstes?",
+                step1: "Klicken Sie auf den WhatsApp-Button oben, um Ihr erstes Gespräch zu beginnen",
+                step2: "Senden Sie ein Selfie, um zu sehen, wie Sie mit 80 aussehen werden",
+                step3: "Stellen Sie Fragen über das Leben, Karriere, Gesundheit oder alles, was Sie interessiert",
+                step4: "Erhalten Sie täglich Weisheit und Perspektive von Ihrem zukünftigen Ich",
+                step5: "Genießen Sie unbegrenzte Gespräche für die nächsten 12 Monate",
+                needHelp: "📧 Hilfe Benötigt?",
+                helpText: "Wenn Sie Fragen haben oder Unterstützung benötigen, kontaktieren Sie uns unter:",
+                responseTime: "Antwortzeit: Innerhalb von 24 Stunden",
+                subscriptionDetails: "📋 Abonnement-Details",
+                plan: "Plan: Future Self AI Companion - Jährlich",
+                price: "Preis: £51.48 pro Jahr",
+                renewal: "Verlängerung: Automatisch (Sie können jederzeit kündigen)",
+                access: "Zugang: Unbegrenzte Gespräche via WhatsApp",
+                coolingOff: "Denken Sie daran: Sie haben eine 14-tägige Bedenkzeit. Wenn Sie nicht zufrieden sind und den Service nicht aktiv genutzt haben, können Sie eine vollständige Rückerstattung beantragen, indem Sie uns kontaktieren."
+            },
+            it: {
+                welcome: "🎉 Benvenuto in Future Self!",
+                subscriptionActive: "Il tuo abbonamento è ora attivo",
+                paymentSuccessful: "Pagamento Riuscito!",
+                thankYou: "Grazie per esserti iscritto a Future Self AI Companion. Il tuo abbonamento annuale è ora attivo e hai pieno accesso per chattare con il tuo io di 80 anni.",
+                startJourney: "🚀 Inizia Il Tuo Viaggio Ora",
+                clickButton: "Clicca il pulsante qui sotto per iniziare a chattare con il tuo io futuro su WhatsApp:",
+                chatButton: "💬 Chatta con Il Tuo Io Futuro",
+                saveNumber: "Salva questo numero:",
+                whatNext: "Cosa succede dopo?",
+                step1: "Clicca il pulsante WhatsApp sopra per iniziare la tua prima conversazione",
+                step2: "Invia un selfie per vedere come apparirai a 80 anni",
+                step3: "Fai domande sulla vita, carriera, salute, o qualsiasi cosa ti incuriosisca",
+                step4: "Ottieni saggezza quotidiana e prospettiva dal tuo io futuro",
+                step5: "Goditi conversazioni illimitate per i prossimi 12 mesi",
+                needHelp: "📧 Hai Bisogno di Aiuto?",
+                helpText: "Se hai domande o hai bisogno di supporto, contattaci a:",
+                responseTime: "Tempo di risposta: Entro 24 ore",
+                subscriptionDetails: "📋 Dettagli Abbonamento",
+                plan: "Piano: Future Self AI Companion - Annuale",
+                price: "Prezzo: £51.48 all'anno",
+                renewal: "Rinnovo: Automatico (puoi cancellare in qualsiasi momento)",
+                access: "Accesso: Conversazioni illimitate via WhatsApp",
+                coolingOff: "Ricorda: Hai un periodo di ripensamento di 14 giorni. Se non sei soddisfatto e non hai utilizzato attivamente il servizio, puoi richiedere un rimborso completo contattandoci."
+            },
+            nl: {
+                welcome: "🎉 Welkom bij Future Self!",
+                subscriptionActive: "Je abonnement is nu actief",
+                paymentSuccessful: "Betaling Succesvol!",
+                thankYou: "Bedankt voor je abonnement op Future Self AI Companion. Je jaarabonnement is nu actief en je hebt volledige toegang om te chatten met je 80-jarige zelf.",
+                startJourney: "🚀 Begin Je Reis Nu",
+                clickButton: "Klik op de knop hieronder om te beginnen met chatten met je toekomstige zelf op WhatsApp:",
+                chatButton: "💬 Chat met Je Toekomstige Zelf",
+                saveNumber: "Bewaar dit nummer:",
+                whatNext: "Wat gebeurt er nu?",
+                step1: "Klik op de WhatsApp-knop hierboven om je eerste gesprek te beginnen",
+                step2: "Stuur een selfie om te zien hoe je eruit zult zien op 80-jarige leeftijd",
+                step3: "Stel vragen over het leven, carrière, gezondheid, of alles waar je nieuwsgierig naar bent",
+                step4: "Krijg dagelijkse wijsheid en perspectief van je toekomstige zelf",
+                step5: "Geniet van onbeperkte gesprekken voor de komende 12 maanden",
+                needHelp: "📧 Hulp Nodig?",
+                helpText: "Als je vragen hebt of ondersteuning nodig hebt, neem contact met ons op via:",
+                responseTime: "Reactietijd: Binnen 24 uur",
+                subscriptionDetails: "📋 Abonnement Details",
+                plan: "Plan: Future Self AI Companion - Jaarlijks",
+                price: "Prijs: £51.48 per jaar",
+                renewal: "Verlenging: Automatisch (je kunt op elk moment opzeggen)",
+                access: "Toegang: Onbeperkte gesprekken via WhatsApp",
+                coolingOff: "Onthoud: Je hebt een bedenktijd van 14 dagen. Als je niet tevreden bent en de service niet actief hebt gebruikt, kun je een volledige terugbetaling aanvragen door contact met ons op te nemen."
+            }
+        };
+
+        // Function to change language
+        function changeLanguage() {
+            const selectedLang = document.getElementById('language-dropdown').value;
+            const translation = translations[selectedLang];
+            
+            if (translation) {
+                // Update header
+                document.querySelector('.header-content h1').textContent = translation.welcome;
+                document.querySelector('header p').textContent = translation.subscriptionActive;
+                
+                // Update main content
+                document.querySelector('.success-card h2').textContent = translation.paymentSuccessful;
+                document.querySelector('.success-card > p').textContent = translation.thankYou;
+                
+                // Update WhatsApp section
+                document.querySelector('.whatsapp-section h3').textContent = translation.startJourney;
+                document.querySelector('.whatsapp-section > p').textContent = translation.clickButton;
+                document.querySelector('.whatsapp-button').textContent = translation.chatButton;
+                
+                const saveNumberText = document.querySelector('.whatsapp-section p:last-of-type');
+                if (saveNumberText) {
+                    const phoneNumber = saveNumberText.innerHTML.match(/<strong>([^<]+)<\/strong>/);
+                    if (phoneNumber) {
+                        saveNumberText.innerHTML = `${translation.saveNumber} <strong>${phoneNumber[1]}</strong>`;
+                    }
+                }
+                
+                // Update next steps
+                document.querySelector('.next-steps h3').textContent = translation.whatNext;
+                const steps = document.querySelectorAll('.next-steps li');
+                steps[0].innerHTML = `<strong>${translation.step1.split(':')[0]}:</strong> ${translation.step1.split(':')[1] || translation.step1}`;
+                steps[1].innerHTML = `<strong>${translation.step2.split(':')[0]}:</strong> ${translation.step2.split(':')[1] || translation.step2}`;
+                steps[2].innerHTML = `<strong>${translation.step3.split(':')[0]}:</strong> ${translation.step3.split(':')[1] || translation.step3}`;
+                steps[3].innerHTML = `<strong>${translation.step4.split(':')[0]}:</strong> ${translation.step4.split(':')[1] || translation.step4}`;
+                steps[4].innerHTML = `<strong>${translation.step5.split(':')[0]}:</strong> ${translation.step5.split(':')[1] || translation.step5}`;
+                
+                // Update support info
+                document.querySelector('.support-info h3').textContent = translation.needHelp;
+                const supportPs = document.querySelectorAll('.support-info p');
+                supportPs[0].textContent = translation.helpText;
+                supportPs[2].innerHTML = `<strong>${translation.responseTime.split(':')[0]}:</strong> ${translation.responseTime.split(':')[1]}`;
+                
+                // Update subscription details
+                const subscriptionSection = document.querySelector('[style*="margin-top: 30px"]');
+                if (subscriptionSection) {
+                    subscriptionSection.querySelector('h3').textContent = translation.subscriptionDetails;
+                    const detailPs = subscriptionSection.querySelectorAll('p');
+                    detailPs[1].innerHTML = `<strong>${translation.plan.split(':')[0]}:</strong> ${translation.plan.split(':')[1]}`;
+                    detailPs[2].innerHTML = `<strong>${translation.price.split(':')[0]}:</strong> ${translation.price.split(':')[1]}`;
+                    detailPs[3].innerHTML = `<strong>${translation.renewal.split(':')[0]}:</strong> ${translation.renewal.split(':')[1]}`;
+                    detailPs[4].innerHTML = `<strong>${translation.access.split(':')[0]}:</strong> ${translation.access.split(':')[1]}`;
+                }
+                
+                // Update cooling-off text
+                const coolingOffText = document.querySelector('[style*="opacity: 0.7"]');
+                if (coolingOffText) {
+                    coolingOffText.textContent = translation.coolingOff;
+                }
+                
+                // Store language preference
+                localStorage.setItem('selectedLanguage', selectedLang);
+            }
+        }
+
+        // Load saved language preference on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('selectedLanguage');
+            if (savedLanguage && translations[savedLanguage]) {
+                document.getElementById('language-dropdown').value = savedLanguage;
+                changeLanguage();
+            }
+        });
+    </script>
 </body>
 </html>
